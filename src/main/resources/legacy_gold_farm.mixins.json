@@ -6,7 +6,10 @@
     "ZombifiedPiglinMixin",
     "MobTargetMixin",
     "NeutralMobMixin",
-    "EntityTransferMixin"
+    "EntityTransferMixin",
+    "PiglinGeometryRefreshMixin",
+    "SpearUseGoalMixin",
+    "BoatPortalContactMixin"
   ],
   "injectors": {
     "defaultRequire": 1

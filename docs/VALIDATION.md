@@ -1,15 +1,13 @@
-# Build and static inspection
+# Validation
 
-2026-10-22, Java 25 and Fabric Loom 1.19.2.
+Version 0.2.0, 2026-10-22. Java 25, Fabric Loom 1.19.2.
 
-- `./gradlew compileJava build --no-daemon` succeeded independently for 26.1, 26.2 and 26.3. The 26.1 jar is labelled 26.1.x.
-- All five injection method signatures exist unchanged in official 26.1, 26.1.1, 26.1.2, 26.2 and 26.3 jars, inspected with javap. Method-body hooks use HEAD/TAIL rather than instruction ordinals.
-- Packaged jar metadata, all four mixin class entries and the Minecraft version ranges were inspected.
-- No test sources were created. The Gradle test tasks report NO-SOURCE. No game launch, Mixin runtime application, farm run, rate measurement or world modification was performed, as requested.
-- The baby riding position change is confirmed by code inspection. Its role as the sole cause of spillage remains unverified. Other mod compatibility is untested.
+- Java compilation and Gradle build passed for 26.1, 26.2 and 26.3. The first jar covers the 26.1 patch family.
+- The original five hook signatures were inspected on 26.1, 26.1.1, 26.1.2, 26.2 and 26.3. New Mob.tick, AbstractBoat.tick and SpearUseGoal start/continue signatures were inspected on the four cached 26.x baselines.
+- Both optional screen implementations compile against their version-specific libraries. Common initialization has no screen-library references. UI libraries are compile-only and not bundled.
+- Every mechanic hook checks its individual setting through the master switch. Geometry refresh observes the same effective setting; spear continuation is gated as well as starting.
+- Screens edit a copied config. Save persists a new snapshot before publishing it, and Cancel leaves the active snapshot alone. Missing JSON fields keep their defaults. Invalid files are logged and left unchanged.
+- Jar metadata, seven mixin class entries, main/Mod Menu entrypoints, version ranges and absence of nested dependency jars were inspected.
+- vibe-check completed with zero errors and zero warnings for each checkout. Its scan covers supported text files; this is not a Java or gameplay verifier.
 
-| Jar family | SHA-256 |
-| --- | --- |
-| 26.1.x | `dc21c06aaecb29e75493aaf5389b3e0d0563147d6667a3fa645e132c856ac4e4` |
-| 26.2 | `0fd2fe935a35519753b142a938be7f234499db7f4244d156be87b4e01cb870dd` |
-| 26.3 | `3654db26a239af2d96a9e9b60956f01574736fa406f0550253ca5d01464b2b6d` |
+No game launch, runtime mixin application, screen interaction or farm tests were performed. Gradle test tasks have no sources. This follows the owner's request to keep verification limited to compilation and inspection.

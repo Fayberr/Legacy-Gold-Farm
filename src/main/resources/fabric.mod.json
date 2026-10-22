@@ -3,7 +3,7 @@
   "id": "legacy_gold_farm",
   "version": "${version}",
   "name": "Legacy Gold Farm",
-  "description": "Restores legacy baby zombified piglin geometry and dimension-local anger.",
+  "description": "Configurable legacy zombified piglin mechanics for gold farms.",
   "authors": [
     "Fayber"
   ],
@@ -16,5 +16,25 @@
     "fabricloader": ">=0.20.1",
     "minecraft": "${minecraft_range}",
     "java": ">=25"
+  },
+  "entrypoints": {
+    "main": [
+      "dev.fayber.legacygoldfarm.LegacyGoldFarm"
+    ],
+    "modmenu": [
+      {
+        "value": "dev.fayber.legacygoldfarm.compat.LegacyGoldFarmModMenu",
+        "adapter": "default"
+      }
+    ]
+  },
+  "suggests": {
+    "modmenu": "*",
+    "cloth-config": "*",
+    "modernconfig": "*"
+  },
+  "contact": {
+    "sources": "https://github.com/Fayberr/Legacy-Gold-Farm",
+    "issues": "https://github.com/Fayberr/Legacy-Gold-Farm/issues"
   }
 }
