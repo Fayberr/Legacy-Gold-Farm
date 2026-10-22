@@ -1,5 +1,7 @@
 package dev.fayber.legacygoldfarm.mixin;
 
+import dev.fayber.legacygoldfarm.config.ConfigManager;
+import dev.fayber.legacygoldfarm.config.Revert;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
@@ -13,7 +15,7 @@ abstract class ZombifiedPiglinMixin {
     @Inject(method = "getDefaultDimensions", at = @At("HEAD"), cancellable = true)
     private void legacyGoldFarm$babyDimensions(Pose pose, CallbackInfoReturnable<EntityDimensions> cir) {
         ZombifiedPiglin piglin = (ZombifiedPiglin) (Object) this;
-        if (piglin.isBaby()) {
+        if (ConfigManager.active(Revert.BABY_GEOMETRY) && piglin.isBaby()) {
             // The 1.21.11 definition includes the scaled riding attachment.
             cir.setReturnValue(piglin.getType().getDimensions().scale(0.5F).withEyeHeight(0.97F));
         }
