@@ -22,8 +22,6 @@ All settings affect matching entities throughout the installation, not just this
 
 Melee pursuit changes combat for spear-carrying zombified piglins and can break contraptions that use their charging attacks. Zombies, husks, ordinary piglins, player spears, equipment and loot tables are unchanged.
 
-Portal behavior stays vanilla. Mojang already reverted the 1.21.5 contact change in 1.21.6, before the versions this mod targets.
-
 ## Installation
 
 Use the matching jar with Fabric Loader 0.20.1 or newer and Java 25. Fabric API is not required by this mod; the optional screen libraries may have their own dependencies.
