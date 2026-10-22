@@ -4,7 +4,7 @@ Configurable Fabric tweaks for potato_noir's [gold farm](https://www.youtube.com
 
 ## Settings
 
-Open **Mods > Legacy Gold Farm > Configure**. Install Mod Menu and either Cloth Config or Modern Config. Modern Config is used when both are present. These libraries are optional and are not bundled.
+Configurable trough Mod Menu.
 
 | Setting | Default | Effect |
 | --- | --- | --- |
@@ -21,8 +21,6 @@ Save applies changes in the running instance. Cancel leaves active settings unch
 All settings affect matching entities throughout the installation, not just this farm. The baby model stays current and can extend beyond the old hitbox. Local targeting disables cross-dimension pursuit in other contraptions. Legacy timers change other llama/golem aggro setups too.
 
 Melee pursuit changes combat for spear-carrying zombified piglins and can break contraptions that use their charging attacks. Zombies, husks, ordinary piglins, player spears, equipment and loot tables are unchanged.
-
-Portal behavior stays vanilla. Mojang already reverted the 1.21.5 contact change in 1.21.6, before the versions this mod targets.
 
 ## Installation
 
