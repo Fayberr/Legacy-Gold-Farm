@@ -4,7 +4,7 @@ Configurable Fabric tweaks for potato_noir's [gold farm](https://www.youtube.com
 
 ## Settings
 
-Open **Mods > Legacy Gold Farm > Configure**. Install Mod Menu and either Cloth Config or Modern Config. Modern Config is used when both are present. These libraries are optional and are not bundled.
+Configurable trough Mod Menu.
 
 | Setting | Default | Effect |
 | --- | --- | --- |
