@@ -2,9 +2,17 @@
 
 Configurable Fabric tweaks for potato_noir's [gold farm](https://www.youtube.com/watch?v=wLLTKyptV0k), for Minecraft 26.1.x, 26.2 and 26.3.
 
+## Download
+
+Download the jar matching your Minecraft version:
+
+- [Minecraft 26.1.x](https://github.com/Fayberr/Legacy-Gold-Farm/releases/tag/v0.2.1-mc26.1.x)
+- [Minecraft 26.2](https://github.com/Fayberr/Legacy-Gold-Farm/releases/tag/v0.2.1-mc26.2)
+- [Minecraft 26.3](https://github.com/Fayberr/Legacy-Gold-Farm/releases/tag/v0.2.1-mc26.3)
+
 ## Settings
 
-Configurable trough Mod Menu.
+Open **Mods > Legacy Gold Farm > Configure** with [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) installed. Modern Config is also supported and takes priority when installed. The mod works without a settings screen; you can edit its JSON config instead.
 
 | Setting | Default | Effect |
 | --- | --- | --- |
@@ -24,16 +32,24 @@ Melee pursuit changes combat for spear-carrying zombified piglins and can break 
 
 ## Installation
 
-Use the matching jar with Fabric Loader 0.20.1 or newer and Java 25. Fabric API is not required by this mod; the optional screen libraries may have their own dependencies.
+Place the matching jar in your instance's `mods` folder, then restart Minecraft. Requires Fabric Loader 0.20.1 or newer and Java 25. Fabric API is not required by this mod; the optional screen libraries may have their own dependencies.
 
 Install on the server or in the singleplayer instance for mechanics. Install on clients too, with matching geometry settings, for consistent baby hitboxes. A client-only installation cannot change server mechanics.
 
 Settings are stored in `config/legacy-gold-farm.json`. On a dedicated server, edit that server's file and restart it. Mod Menu edits the local installation only, not a remote server. No config packets or remote administration commands are added.
 
-## Development
+## Building from source
 
-Run `./gradlew compileJava`, then `./gradlew build`. Jars are written to `build/libs`.
+Check out `fabric/26.1.x`, `fabric/26.2` or `fabric/26.3` for the version you want to build. Use JDK 25 and the included Gradle wrapper.
 
-[Mechanics and sources](docs/RESEARCH.md) explain the changes. [Validation](docs/VALIDATION.md) records the checks performed. The lower baby drop position is a strong explanation for spillage, rather than a demonstrated complete diagnosis. Use the updated elevator if you want to avoid the original snow-golem targeting setup.
+The Modern Config adapter currently needs `net.fayber:modern-config` installed in your local Maven repository. The required version is listed in `gradle.properties`; it is a compile-only dependency and is not bundled. This prerequisite applies to source builds only. Downloaded jars work with Cloth Config without Modern Config.
+
+Run `./gradlew compileJava`, then `./gradlew build` (`gradlew.bat` on Windows). Jars are written to `build/libs`.
+
+## Feedback
+
+Report problems through [GitHub Issues](https://github.com/Fayberr/Legacy-Gold-Farm/issues). Include your Minecraft and mod versions, enabled settings, and a screenshot or short reproduction. For crashes, attach the crash report.
+
+[Mechanics and sources](docs/RESEARCH.md) explain the changes. [Validation](docs/VALIDATION.md) records the checks performed. The updated Overworld elevator is recommended.
 
 GPL-3.0-or-later. Copyright 2026 Fayber.
