@@ -34,6 +34,6 @@ Settings are stored in `config/legacy-gold-farm.json`. On a dedicated server, ed
 
 Run `./gradlew compileJava`, then `./gradlew build`. Jars are written to `build/libs`.
 
-[Mechanics and sources](docs/RESEARCH.md) explain the changes. [Validation](docs/VALIDATION.md) records the checks performed. No farm or gameplay tests have been run. The lower baby drop position is a strong explanation for spillage, rather than a demonstrated complete diagnosis. Use the updated elevator if you want to avoid the original snow-golem targeting setup.
+[Mechanics and sources](docs/RESEARCH.md) explain the changes. [Validation](docs/VALIDATION.md) records the checks performed. The lower baby drop position is a strong explanation for spillage, rather than a demonstrated complete diagnosis. Use the updated elevator if you want to avoid the original snow-golem targeting setup.
 
 GPL-3.0-or-later. Copyright 2026 Fayber.
