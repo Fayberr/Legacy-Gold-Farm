@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Remove the unnecessary boat portal polling option and mixin. Portal behavior is vanilla on all supported versions.
+- Existing config files remain compatible; the removed field is ignored and disappears on the next save.
+
 ## 0.2.0
 
 - Add a master switch and separate toggles for each mechanic.

@@ -30,11 +30,7 @@ Source: [MC-312355](https://bugs.mojang.com/browse/MC/issues/MC-312355), [readab
 
 The author's pinned comment describes boat stacks no longer teleporting immediately in 1.21.5. Mojang subsequently reverted that thin-contact change: the [1.21.6 release notes](https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-6) list MC-295395, MC-295895 and MC-296099. In the inspected 26.1, 26.2 and 26.3 code, NetherPortalBlock does not override `getEntityInsideCollisionShape`; BlockBehaviour returns `Shapes.block()`.
 
-There is no remaining thin portal shape to revert in these versions. Legacy boat portal contact instead adds the old occupied-block polling pattern at the end of a server boat tick. It checks the boat AABB deflated by 0.001 against portal block cells, including while stationary, and calls vanilla `setAsInsidePortal`. This is a compatibility addition, not proof of an outstanding 26.x portal defect.
-
-The check is limited to boats/rafts, reads loaded chunks only and preserves `canUsePortal(false)`, cooldown processing and portal destination/linking logic. It may alter contact timing and which block is recorded when a boat overlaps multiple portal blocks. It also adds a short per-boat scan. It defaults off, and should normally be unnecessary in 26.x.
-
-Earlier versions of this project's notes incorrectly treated the 1.21.5 contact change as still present in 26.x. The code inspection above corrects that diagnosis.
+There is no remaining thin portal shape to revert in these versions. The unnecessary optional boat polling added in 0.2.0 was removed in 0.2.1. Portal contact, cooldowns and linking remain entirely vanilla.
 
 ## Spear movement
 
