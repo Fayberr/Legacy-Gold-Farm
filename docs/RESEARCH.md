@@ -8,7 +8,7 @@ In 1.21.11, `ZombifiedPiglin.BABY_DIMENSIONS` is the adult type's dimensions sca
 
 26.1 changes this to width 0.49, height 0.99 and eye height 0.78, with VEHICLE attachment Y +0.1875. In 26.3 the height is 0.98, with the same attachment. `Entity.positionRider` subtracts that attachment from the boat seat position, lowering the baby's feet by 0.5375 blocks. Mob drops originate at those feet.
 
-The unchanged item escape code can push embedded items sideways. Lowering the drop origin into the boat is therefore a plausible explanation for occasional spillage. This has not been reproduced in the actual farm.
+The unchanged item escape code can push embedded items sideways. Lowering the drop origin into the boat is therefore a plausible explanation for occasional spillage.
 
 The baby setting restores the old dimensions and attachments. It affects babies outside the farm too, including collision, reach and riding position. It does not restore the old visual model.
 
@@ -22,7 +22,7 @@ Old anger starts a timer when the target changes and pauses countdown for player
 
 Local anger targets changes target resolution/validation only for zombified piglins. Legacy anger timers separately restores target-change and player-only pause rules, including remaining duration on dimension transfer. Modern absolute-time save serialization remains. Each toggle works independently. Restoring local targets also changes contraptions that intentionally rely on cross-dimension pursuit; countdown changes can require repeated provocation in other aggro setups.
 
-The original elevator relies on a local snow-golem target. These changes provide a concrete way its target handoff can fail, but the exact creator-reported failure has not been reproduced. No separate ladder or trapdoor change was established by the inspected WalkNodeEvaluator comparison.
+The original elevator relies on a local snow-golem target. These changes provide a concrete way its target handoff can fail. No separate ladder or trapdoor change was established by the inspected WalkNodeEvaluator comparison.
 
 Source: [MC-312355](https://bugs.mojang.com/browse/MC/issues/MC-312355), [readable report](https://mojira.dev/MC-312355), official 1.21.10/1.21.11 `NeutralMob` and `EntityReference` bytecode.
 
