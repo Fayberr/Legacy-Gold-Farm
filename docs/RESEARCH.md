@@ -42,3 +42,13 @@ Compared official Mojang game artifacts locally with javap and CFR. Decompiled M
 | 26.1.2 | `62686f33938a431088a99e91e6c03fe173f0ec53d65fd9b6bff3ec0e9fd06647` |
 | 26.2 | `42a58e3b84a83b2269505e623298003b94138393e8b63081304fff2a233ebc4c` |
 | 26.3 | `946098fd0301ee78816da29f754ebd3004ed2745950a8b0b043775e7eb5e7197` |
+
+## Original elevator follow-up (2026-10-22)
+
+Further inspection identifies the global UUID lookup explicitly: EntityReference.getEntity(Level, Class) binds Level.getEntityInAnyDimension for LivingEntity targets, not merely a dimension-blind cached reference. This is present in the official 1.21.11 jar (EntityReference cgr, Level dwo.a(UUID), mapped to getEntityInAnyDimension) and remains in 26.1. NeutralMob.readPersistentAngerSaveData uses this resolver and assigns the result as the live target. In 1.21.10 the same load path uses ServerLevel.getEntity(UUID), restricted to the current dimension.
+
+A piglin angered by the Nether llama can consequently reload its llama target after entering the Overworld. Navigation uses that target's unscaled coordinates, even though the llama is still in the Nether. The changed anger timer also continuously refreshes while the foreign target persists. This is a concrete failure mechanism for the old elevator's target handoff: Nether llama -> local snow golem -> climb toward the golem. Its contribution to the author's exact reported elevator failure is a source-based inference, not a reproduced observation. The current local-target/load and timer patches already address this mechanism.
+
+A separate 1.21.11 change remains outside the patch: spear-equipped zombified piglins run priority-1 SpearUseGoal instead of exclusively relying on the priority-2 ZombieAttackGoal. SpearUseGoal owns MOVE/LOOK and has approach/engagement/reposition states. Thus even a correctly acquired snow-golem target need not produce the old continuous melee pursuit. This is an additional candidate for interference with an aggro-driven elevator, not established as its cause. No spear-AI rollback is shipped. No blanket ladder or trapdoor rollback is justified by the WalkNodeEvaluator comparison performed here; the inspected node-evaluation code does not establish such a change.
+
+This follow-up changes the diagnosis, not the built jars. Restoring dimension-local aggro should help the old elevator, but the mod still does not establish complete restoration of old elevator behavior. A new-elevator build avoids needing the snow-golem handoff but does not itself remove spear AI elsewhere in the farm.
