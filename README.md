@@ -12,7 +12,7 @@ Download the jar matching your Minecraft version:
 
 ## Settings
 
-Open **Mods > Legacy Gold Farm > Configure** with [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) installed. [Modern Config](https://github.com/Fayberr/modern-config) is also supported and takes priority when installed. Its repository is currently private; use Cloth Config for the publicly available settings screen. The mod works without a settings screen; you can edit its JSON config instead.
+Open **Mods > Legacy Gold Farm > Configure** with [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) installed. [Modern Config](https://github.com/Fayberr/modern-config) is also supported and takes priority when installed. It requires [Modern GUI](https://github.com/Fayberr/modern-gui). The mod works without a settings screen; you can edit its JSON config instead.
 
 | Setting | Default | Effect |
 | --- | --- | --- |
