@@ -1,21 +1,42 @@
 # Legacy Gold Farm
 
-Fabric compatibility candidate for potato_noir's gold farm with the updated, simpler Overworld elevator.
+Configurable Fabric tweaks for potato_noir's [gold farm](https://www.youtube.com/watch?v=wLLTKyptV0k), for Minecraft 26.1.x, 26.2 and 26.3.
 
-Restores pre-26 baby zombified piglin dimensions and riding position, current-dimension anger targeting, and the old non-player anger countdown. The baby position change is the suspected cause of item spillage. Gameplay and farm tests have deliberately not been performed. This does not guarantee a working farm or unchanged rates.
+## Settings
 
-See [the mechanics investigation](docs/RESEARCH.md) for the evidence, exact changes and remaining uncertainty.
+Open **Mods > Legacy Gold Farm > Configure**. Install Mod Menu and either Cloth Config or Modern Config. Modern Config is used when both are present. These libraries are optional and are not bundled.
+
+| Setting | Default | Effect |
+| --- | --- | --- |
+| Enable reverts | On | Master switch. Off bypasses every mechanic patch without forgetting individual choices. |
+| Baby piglin geometry | On | Restore old baby zombified piglin dimensions and boat riding position. |
+| Local anger targets | On | Prevent zombified piglins from pursuing targets in another dimension. |
+| Legacy anger timers | On | Count down anger toward mobs instead of constantly refreshing it. |
+| Legacy boat portal contact | Off | Add a per-tick occupied-block portal check for boats, including stationary boats. |
+| Piglin melee pursuit | Off | Let the existing melee goal run instead of spear charging and repositioning. |
+
+Save applies changes in the running instance. Cancel leaves active settings unchanged. Existing piglins refresh their geometry on their next tick. The master switch stops future interventions; it does not undo teleports, damage or targeting decisions that already happened.
+
+### Side effects
+
+All settings affect matching entities throughout the installation, not just this farm. The baby model stays current and can extend beyond the old hitbox. Local targeting disables cross-dimension pursuit in other contraptions. Legacy timers change other llama/golem aggro setups too.
+
+Melee pursuit changes combat for spear-carrying zombified piglins and can break contraptions that use their charging attacks. Zombies, husks, ordinary piglins, player spears, equipment and loot tables are unchanged.
+
+The 1.21.5 thin portal-contact change was already reverted by Mojang in 1.21.6. Current 26.x portals use full-block contact. The portal option is therefore an additional legacy polling mode, not a missing shape revert. It can change the timing and selected contact block for a stationary boat overlapping several portal blocks, and adds a small scan per loaded boat. Portal cooldowns, passenger restrictions and destination/linking rules remain vanilla. Leave it off unless needed.
 
 ## Installation
 
-Use the jar matching your Minecraft version with Fabric Loader 0.20.1 or newer and Java 25. Fabric API is not required. Install in the singleplayer instance, or on the dedicated server. Installing on clients too keeps the restored baby hitbox and riding geometry consistent with the server; the new baby model is retained and can visually mismatch the old hitbox. A client-only installation cannot fix server mechanics. There are no commands or configuration screens.
+Use the matching jar with Fabric Loader 0.20.1 or newer and Java 25. Fabric API is not required by this mod; the optional screen libraries may have their own dependencies.
 
-The patch affects all zombified piglins in that installation, including ones outside this farm. Other neutral mobs retain vanilla behavior. Existing baby dimensions are restored when loaded/refreshed, so restart the game/server after installation. Remove the jar and restart to return to vanilla behavior. No custom entity NBT is written.
+Install on the server or in the singleplayer instance for mechanics. Install on clients too, with matching geometry settings, for consistent baby hitboxes. A client-only installation cannot change server mechanics.
 
-## Building
+Settings are stored in `config/legacy-gold-farm.json`. On a dedicated server, edit that server's file and restart it. Mod Menu edits the local installation only, not a remote server. No config packets or remote administration commands are added.
 
-Run `./gradlew compileJava` followed by `./gradlew build`. Build outputs are under `build/libs`. Compilation and static hook inspection are the only verification performed. No game was launched and no world was modified.
+## Development
 
-## License
+Run `./gradlew compileJava`, then `./gradlew build`. Jars are written to `build/libs`.
+
+[Mechanics and sources](docs/RESEARCH.md) explain the changes. [Validation](docs/VALIDATION.md) records the checks performed. No farm or gameplay tests have been run. The lower baby drop position is a strong explanation for spillage, rather than a demonstrated complete diagnosis. Use the updated elevator if you want to avoid the original snow-golem targeting setup.
 
 GPL-3.0-or-later. Copyright 2026 Fayber.

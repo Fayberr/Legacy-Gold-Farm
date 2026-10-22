@@ -1,5 +1,7 @@
 package dev.fayber.legacygoldfarm.mixin;
 
+import dev.fayber.legacygoldfarm.config.ConfigManager;
+import dev.fayber.legacygoldfarm.config.Revert;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityReference;
@@ -19,7 +21,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 interface NeutralMobMixin {
     @Inject(method = "readPersistentAngerSaveData", at = @At("TAIL"))
     private void legacyGoldFarm$resolveLocally(Level level, ValueInput input, CallbackInfo ci) {
-        if ((Object) this instanceof ZombifiedPiglin piglin && level instanceof ServerLevel server) {
+        if (ConfigManager.active(Revert.LOCAL_ANGER_TARGETS) && (Object) this instanceof ZombifiedPiglin piglin
+                && level instanceof ServerLevel server) {
             EntityReference<LivingEntity> reference = piglin.getPersistentAngerTarget();
             Entity local = reference == null ? null : server.getEntity(reference.getUUID());
             piglin.setTarget(local instanceof LivingEntity living ? living : null);
@@ -28,7 +31,8 @@ interface NeutralMobMixin {
 
     @Inject(method = "updatePersistentAnger", at = @At("HEAD"), cancellable = true)
     private void legacyGoldFarm$legacyAnger(ServerLevel level, boolean stayAngryIfTargetPresent, CallbackInfo ci) {
-        if (!((Object) this instanceof ZombifiedPiglin piglin)) {
+        if (!ConfigManager.active(Revert.LEGACY_ANGER_TIMERS)
+                || !((Object) this instanceof ZombifiedPiglin piglin)) {
             return;
         }
         LivingEntity target = piglin.getTarget();
