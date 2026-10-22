@@ -12,7 +12,7 @@ Download the jar matching your Minecraft version:
 
 ## Settings
 
-Open **Mods > Legacy Gold Farm > Configure** with [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) installed. Modern Config is also supported and takes priority when installed. The mod works without a settings screen; you can edit its JSON config instead.
+Open **Mods > Legacy Gold Farm > Configure** with [Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) installed. [Modern Config](https://github.com/Fayberr/modern-config) is also supported and takes priority when installed. Its repository is currently private; use Cloth Config for the publicly available settings screen. The mod works without a settings screen; you can edit its JSON config instead.
 
 | Setting | Default | Effect |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ Settings are stored in `config/legacy-gold-farm.json`. On a dedicated server, ed
 
 Check out `fabric/26.1.x`, `fabric/26.2` or `fabric/26.3` for the version you want to build. Use JDK 25 and the included Gradle wrapper.
 
-The Modern Config adapter currently needs `net.fayber:modern-config` installed in your local Maven repository. The required version is listed in `gradle.properties`; it is a compile-only dependency and is not bundled. This prerequisite applies to source builds only. Downloaded jars work with Cloth Config without Modern Config.
+The [Modern Config](https://github.com/Fayberr/modern-config) adapter currently needs `net.fayber:modern-config` installed in your local Maven repository. The required version is listed in `gradle.properties`; it is a compile-only dependency and is not bundled. This prerequisite applies to source builds only. Downloaded jars work with Cloth Config without [Modern Config](https://github.com/Fayberr/modern-config).
 
 Run `./gradlew compileJava`, then `./gradlew build` (`gradlew.bat` on Windows). Jars are written to `build/libs`.
 

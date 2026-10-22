@@ -8,7 +8,7 @@
 ## 0.2.0
 
 - Add a master switch and separate toggles for each mechanic.
-- Add Mod Menu settings through Cloth Config or optional Modern Config.
+- Add Mod Menu settings through Cloth Config or optional [Modern Config](https://github.com/Fayberr/modern-config).
 - Add optional zombified piglin melee pursuit and legacy boat portal polling, both off by default.
 - Refresh existing piglin dimensions after changing geometry settings.
 - Correct the portal diagnosis: Mojang already restored full-block contact in 1.21.6.
