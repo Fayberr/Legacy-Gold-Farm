@@ -8,8 +8,7 @@
     "NeutralMobMixin",
     "EntityTransferMixin",
     "PiglinGeometryRefreshMixin",
-    "SpearUseGoalMixin",
-    "BoatPortalContactMixin"
+    "SpearUseGoalMixin"
   ],
   "injectors": {
     "defaultRequire": 1

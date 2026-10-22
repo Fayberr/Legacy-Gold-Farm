@@ -12,7 +12,6 @@ Open **Mods > Legacy Gold Farm > Configure**. Install Mod Menu and either Cloth 
 | Baby piglin geometry | On | Restore old baby zombified piglin dimensions and boat riding position. |
 | Local anger targets | On | Prevent zombified piglins from pursuing targets in another dimension. |
 | Legacy anger timers | On | Count down anger toward mobs instead of constantly refreshing it. |
-| Legacy boat portal contact | Off | Add a per-tick occupied-block portal check for boats, including stationary boats. |
 | Piglin melee pursuit | Off | Let the existing melee goal run instead of spear charging and repositioning. |
 
 Save applies changes in the running instance. Cancel leaves active settings unchanged. Existing piglins refresh their geometry on their next tick. The master switch stops future interventions; it does not undo teleports, damage or targeting decisions that already happened.
@@ -23,7 +22,7 @@ All settings affect matching entities throughout the installation, not just this
 
 Melee pursuit changes combat for spear-carrying zombified piglins and can break contraptions that use their charging attacks. Zombies, husks, ordinary piglins, player spears, equipment and loot tables are unchanged.
 
-The 1.21.5 thin portal-contact change was already reverted by Mojang in 1.21.6. Current 26.x portals use full-block contact. The portal option is therefore an additional legacy polling mode, not a missing shape revert. It can change the timing and selected contact block for a stationary boat overlapping several portal blocks, and adds a small scan per loaded boat. Portal cooldowns, passenger restrictions and destination/linking rules remain vanilla. Leave it off unless needed.
+Portal behavior stays vanilla. Mojang already reverted the 1.21.5 contact change in 1.21.6, before the versions this mod targets.
 
 ## Installation
 

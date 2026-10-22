@@ -13,9 +13,6 @@ public enum Revert {
     LEGACY_ANGER_TIMERS("Legacy anger timers", true,
             "Restore countdown for non-player targets. Other llama or golem aggro setups may need repeated provocation. Modern save timing is retained.",
             c -> c.legacyAngerTimers, (c, value) -> c.legacyAngerTimers = value),
-    LEGACY_BOAT_PORTAL_CONTACT("Legacy boat portal contact", false,
-            "Check a boat's occupied portal blocks every tick. Full-block portal contact already returned in 1.21.6. Extra polling can change stationary boat setups and adds work per boat.",
-            c -> c.legacyBoatPortalContact, (c, value) -> c.legacyBoatPortalContact = value),
     LEGACY_PIGLIN_MELEE("Piglin melee pursuit", false,
             "Use melee pursuit instead of spear charging and repositioning for zombified piglins. Changes their combat and spear-based farms; equipment and drops are unchanged.",
             c -> c.legacyPiglinMelee, (c, value) -> c.legacyPiglinMelee = value);

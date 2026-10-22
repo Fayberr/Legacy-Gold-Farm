@@ -5,7 +5,6 @@ public final class FarmConfig {
     public boolean babyGeometry = true;
     public boolean localAngerTargets = true;
     public boolean legacyAngerTimers = true;
-    public boolean legacyBoatPortalContact = false;
     public boolean legacyPiglinMelee = false;
 
     public FarmConfig copy() {
