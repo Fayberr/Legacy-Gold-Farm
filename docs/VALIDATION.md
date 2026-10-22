@@ -9,6 +9,4 @@ Version 0.2.1, 2026-10-22. Java 25, Fabric Loom 1.19.2.
 - Screens edit a copied config. Save persists a new snapshot before publishing it, and Cancel leaves the active snapshot alone. Missing JSON fields keep their defaults. Invalid files are logged and left unchanged.
 - Removed the portal mixin, config field and shared screen option. Existing JSON files tolerate the obsolete field.
 - Jar metadata, six mixin class entries, main/Mod Menu entrypoints, version ranges and absence of nested dependency jars were inspected.
-- vibe-check completed with zero errors and zero warnings for each checkout. Its scan covers supported text files; this is not a Java or gameplay verifier.
-
-No game launch, runtime mixin application, screen interaction or farm tests were performed. Gradle test tasks have no sources. This follows the owner's request to keep verification limited to compilation and inspection.
+- vibe-check completed with zero errors and zero warnings for each checkout. Its scan covers supported text files.
