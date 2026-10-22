@@ -1,5 +1,7 @@
 # Legacy Gold Farm
 
+> Work in progress: the optional [Modern Config](https://github.com/Fayberr/modern-config) settings screen and its [Modern GUI](https://github.com/Fayberr/modern-gui) dependency are still in development. Cloth Config covers the same settings and is the stable choice for now.
+
 Configurable Fabric tweaks for potato_noir's [gold farm](https://www.youtube.com/watch?v=wLLTKyptV0k), for Minecraft 26.1.x, 26.2 and 26.3.
 
 ## Download
