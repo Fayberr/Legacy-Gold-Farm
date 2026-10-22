@@ -20,7 +20,7 @@ Sources: [26.1 snapshot 7](https://www.minecraft.net/en-us/article/minecraft-26-
 
 Old anger starts a timer when the target changes and pauses countdown for player targets. The newer update refreshes anger while a mob target remains present too. That allows the foreign-target problem to persist.
 
-Local anger targets changes target resolution/validation only for zombified piglins. Legacy anger timers separately restores target-change and player-only pause rules, including remaining duration on dimension transfer. Modern absolute-time save serialization remains. Each toggle works independently. Restoring local targets also changes contraptions that intentionally rely on cross-dimension pursuit; countdown changes can require repeated provocation in other aggro setups.
+The local-target setting changes target resolution and validation only for zombified piglins. The timer setting restores target-change and player-only pause rules, including remaining duration on dimension transfer. Modern absolute-time saves remain, so anger can expire while a mob is unloaded. Each toggle works independently. Restoring local targets also changes contraptions that intentionally rely on cross-dimension pursuit; countdown changes can require repeated provocation in other aggro setups.
 
 The original elevator relies on a local snow-golem target. These changes provide a concrete way its target handoff can fail. No separate ladder or trapdoor change was established by the inspected WalkNodeEvaluator comparison.
 
